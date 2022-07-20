@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:tns="http://tempuri.org/YearSchema.xsd"
+            targetNamespace="http://tempuri.org/YearSchema.xsd"
+            elementFormDefault="qualified">
+    <xsd:element name="Year" type="tns:YearType"/>
+    <xsd:complexType name="YearType">
+        <xsd:sequence>
+            <xsd:element name="month" type="tns:MonthType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="Day" type="tns:DayType"/>
+    <xsd:complexType name="DayType">
+        <xsd:sequence>
+            <xsd:element name="temperature" type="tns:TemperatureType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:simpleType name="TemperatureType">
+        <xsd:restriction base="xsd:integer">
+            <xsd:minExclusive value="-100"/>
+            <xsd:maxExclusive value="65"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:element name="Month" type="tns:MonthType"/>
+    <xsd:complexType name="MonthType">
+        <xsd:sequence>
+            <xsd:element name="December" type="tns:DayType" minOccurs="31" maxOccurs="31"/>
+            <!--  restriction          -->
+            <xsd:element name="January" type="tns:DayType" maxOccurs="31"/>
+            <xsd:element name="February" type="tns:DayType" maxOccurs="28"/>
+            <xsd:element name="March" type="tns:DayType" maxOccurs="31"/>
+            <xsd:element name="April" type="tns:DayType" maxOccurs="30"/>
+            <xsd:element name="May" type="tns:DayType" maxOccurs="31"/>
+            <xsd:element name="June" type="tns:DayType" maxOccurs="30"/>
+            <xsd:element name="July" type="tns:DayType" maxOccurs="31"/>
+            <xsd:element name="August" type="tns:DayType" maxOccurs="31"/>
+            <xsd:element name="September" type="tns:DayType" maxOccurs="30"/>
+            <xsd:element name="October" type="tns:DayType" maxOccurs="31"/>
+            <xsd:element name="November" type="tns:DayType" maxOccurs="30"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+</xsd:schema>
+
+
+
+
