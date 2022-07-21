@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:tns="http://www.exapmle.com/year.xsd"
+            targetNamespace="http://www.exapmle.com/year.xsd"
+            elementFormDefault="qualified">
+    <xsd:element name="year">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="month" type="tns:monthType" minOccurs="12" maxOccurs="12"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:complexType name="dayType">
+        <xsd:sequence>
+            <xsd:element name="dayNumber" type="tns:dayNumberType"/>
+            <xsd:element name="temperature" type="tns:temperatureType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:simpleType name="temperatureType">
+        <xsd:restriction base="xsd:integer">
+            <xsd:minInclusive value="-100"/>
+            <xsd:maxInclusive value="65"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="dayNumberType">
+        <xsd:restriction base="xsd:integer">
+            <xsd:minInclusive value="0"/>
+            <xsd:minExclusive value="31"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:complexType name="monthType">
+        <xsd:sequence>
+            <xsd:element name="monthName" type="tns:monthNameType"/>
+            <xsd:element name="day" type="tns:dayType" minOccurs="28" maxOccurs="31"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+
+    <xsd:simpleType name="monthNameType">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="December"/>
+            <xsd:enumeration value="January"/>
+            <xsd:enumeration value="January"/>
+            <xsd:enumeration value="February"/>
+            <xsd:enumeration value="March"/>
+            <xsd:enumeration value="April"/>
+            <xsd:enumeration value="May"/>
+            <xsd:enumeration value="June"/>
+            <xsd:enumeration value="July"/>
+            <xsd:enumeration value="August"/>
+            <xsd:enumeration value="September"/>
+            <xsd:enumeration value="October"/>
+            <xsd:enumeration value="November"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+
+</xsd:schema>
