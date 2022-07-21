@@ -1,7 +1,9 @@
 package Helper.properties;
 
 public enum PropertiesEnum {
-    XML_FILE("yearXml")
+    XML_FILE("yearXml"),
+    XSD_SCHEMA("yearXsd"),
+
     ;
 
     private final String path;
