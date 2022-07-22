@@ -25,7 +25,7 @@
     <xsd:simpleType name="dayNumberType">
         <xsd:restriction base="xsd:integer">
             <xsd:minInclusive value="0"/>
-            <xsd:minExclusive value="31"/>
+            <xsd:maxInclusive value="31"/>
         </xsd:restriction>
     </xsd:simpleType>
     <xsd:complexType name="monthType">
