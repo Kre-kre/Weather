@@ -36,6 +36,5 @@ public class SelectVariantServlet extends HttpServlet {
         } else {
             request.getRequestDispatcher("resultd.jsp").forward(request, response);
         }
-//
     }
 }
