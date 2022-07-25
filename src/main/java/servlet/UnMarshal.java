@@ -1,3 +1,5 @@
+package servlet;
+
 import Helper.properties.PropertiesEnum;
 import Helper.properties.XmlValidator;
 import model.Year;
@@ -25,5 +27,4 @@ public class UnMarshal {
     public static void main(String[] args) {
         System.out.println(UnMarshal.getYear());
     }
-
 }

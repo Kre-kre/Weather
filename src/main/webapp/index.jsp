@@ -1,74 +1,38 @@
-<%@ page import="javax.servlet.jsp.JspWriter" %>
-<%@ page import="javax.servlet.jsp.PageContext" %>
-<%@ page import="java.io.PrintWriter" %>
-<%!
-public class index
-{
-    private PageContext pageContext;
-    private JspWriter out;
 
-    public index(PageContext pageContext)
-    {
-        this.pageContext = pageContext;
-        out = pageContext.getOut();
-    }
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.DriverManager" %>
+<%@ page import="servlet.UnMarshal" %>
+<%@ page import="java.util.List" %>
+<%@ page import="model.MonthType" %>
+<%@ page import="java.util.Objects" %>
+<%@ page import="java.util.ListIterator" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-    public void run()
-    {
-        try
-        {
-            parseParameters();
-            execute();
-            printContent();
-        }
-        catch (Exception e)
-        {
-            printException(e);
-        }
-    }
 
-    protected void parseParameters() throws Exception
-    {
-        print("index parseParameters");
-    }
-
-    protected void execute() throws Exception
-    {
-        print("index execute");
-    }
-
-    protected void printContent()
-    {
-        print("index printContent");
-    }
-
-    private void print(Object obj)
-    {
-        try
-        {
-            out.print(obj);
-            out.print("<br/>");
-        }
-        catch (Exception ignored)
-        {
-        }
-    }
-
-    private void printException(Throwable obj)
-    {
-        try
-        {
-            out.print("<pre>");
-            obj.printStackTrace(new PrintWriter(out));
-            out.print("</pre>");
-            out.print("<br/>");
-        }
-        catch (Exception ignored)
-        {
-        }
-    }
-}
-%>
-<%
-    new index(pageContext).run();
-%>
+<html>
+<head>
+    <title>Weather</title>
+</head>
+<body>
+<div style="text-align: center;">
+<h1>Select an option</h1>
+</div>
+<form name="Simple" action="SelectMonth" method="POST">
+    <%
+        List<MonthType> monthTypes = Objects.requireNonNull(UnMarshal.getYear()).getMonth();
+        ListIterator<MonthType> monthTypeListIterator = monthTypes.listIterator();
+    %>
+    <div style="text-align: center;">
+        <label>
+            <select name="month">
+                <% while (monthTypeListIterator.hasNext()) { %>
+                <option><%= monthTypeListIterator.next().getMonthName()%>
+                </option>
+                <% } %>
+            </select>
+        </label>
+        <input type="submit" name="button" value="Select"/>
+    </div>
+</form>
+</body>
+</html>

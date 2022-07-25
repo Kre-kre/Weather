@@ -27,7 +27,7 @@ import javax.xml.bind.annotation.XmlType;
  * <pre>
  * &lt;complexType name="monthType"&gt;
  *   &lt;complexContent&gt;
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *     &lt;restriction base="{<a href="http://www.w3.org/2001/XMLSchema">...</a>}anyType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="monthName" type="{http://www.exapmle.com/year.xsd}monthNameType"/&gt;
  *         &lt;element name="day" type="{http://www.exapmle.com/year.xsd}dayType" maxOccurs="31" minOccurs="28"/&gt;
@@ -75,7 +75,7 @@ public class MonthType {
      *
      * <p>
      * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
+     * not a snapshot. Therefore, any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the day property.
      *
