@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -6,8 +5,8 @@
 </head>
 <form name="Simple" action="SelectVariant" method="POST">
     <div style="text-align: center;">
-        <p>Your choose ${monthType} month </p>
-        <p>Select variant</p>
+        <p>Your choice is an month ${monthType} </p>
+        <p>Select an option</p>
     </div>
     <div style="text-align: center;">
         <label>
@@ -20,4 +19,5 @@
         </label>
         <input type="submit" name="button" value="Variant"/>
     </div>
+    </form>
 </html>

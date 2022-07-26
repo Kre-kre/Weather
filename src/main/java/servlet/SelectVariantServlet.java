@@ -5,6 +5,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+
 import java.io.IOException;
 
 
@@ -28,13 +29,13 @@ public class SelectVariantServlet extends HttpServlet {
         String variant = request.getParameter("variant");
         request.setAttribute("variantType",variant);
         if (variant.equals("a")){
-            request.getRequestDispatcher("resulta.jsp").forward(request, response);
+            request.getRequestDispatcher("result_a.jsp").forward(request, response);
         } else if (variant.equals("b")){
-            request.getRequestDispatcher("resultb.jsp").forward(request, response);
+            request.getRequestDispatcher("result_b.jsp").forward(request, response);
         } else if (variant.equals("c")){
-            request.getRequestDispatcher("resultc.jsp").forward(request, response);
+            request.getRequestDispatcher("result_c.jsp").forward(request, response);
         } else {
-            request.getRequestDispatcher("resultd.jsp").forward(request, response);
+            request.getRequestDispatcher("result_d.jsp").forward(request, response);
         }
     }
 }

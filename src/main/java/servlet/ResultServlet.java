@@ -26,6 +26,6 @@ public class ResultServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        request.getRequestDispatcher("/selectVariant.jsp").forward(request, response);
+        request.getRequestDispatcher("/").forward(request, response);
     }
 }

@@ -1,4 +1,3 @@
-
 <%@ page import="java.sql.Connection" %>
 <%@ page import="java.sql.DriverManager" %>
 <%@ page import="servlet.UnMarshal" %>
@@ -15,7 +14,7 @@
 </head>
 <body>
 <div style="text-align: center;">
-<h1>Select an option</h1>
+    <h1>Select an option</h1>
 </div>
 <form name="Simple" action="SelectMonth" method="POST">
     <%
