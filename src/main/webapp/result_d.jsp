@@ -1,7 +1,7 @@
-<%@ page import="model.MonthType" %>
-<%@ page import="servlet.UnMarshaller" %>
+
 <%@ page import="model.DayType" %>
 <%@ page import="java.util.*" %>
+<%@ page import="Helper.models.DaysHolder" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -19,21 +19,14 @@
 
 <%
     String month = request.getParameter("monthType");
-    List<MonthType> monthTypes = Objects.requireNonNull(UnMarshaller.getYear()).getMonth();
-    List<DayType> dayTypeList = new ArrayList<>();
-    for (MonthType monthType : monthTypes) {
-        if (monthType.getMonthName().name().equals(month)) {
-            dayTypeList.addAll(monthType.getDay());
-        }
-    }
+    List<DayType> dayTypeList = DaysHolder.getDayTypes(month);
     dayTypeList.sort(Comparator.comparingDouble(DayType::getTemperature));
     Collections.reverse(dayTypeList);
-
 %>
 <div style="text-align: center;">
-    <%=  dayTypeList.get(0).getTemperature() + ", "
+    <%= "3 hottest days:  " + dayTypeList.get(0).getTemperature() + ", "
             + dayTypeList.get(1).getTemperature()
-            + "," + dayTypeList.get(2).getTemperature()%>
+            + ", " + dayTypeList.get(2).getTemperature()%>
 </div>
 <div style="text-align: center;">
     <button onclick="location.href='/Weather_war_exploded/index.jsp'">Back to main</button>

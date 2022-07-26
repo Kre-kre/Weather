@@ -1,10 +1,8 @@
-<%@ page import="model.MonthType" %>
-<%@ page import="java.util.Objects" %>
-<%@ page import="servlet.UnMarshaller" %>
+
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.OptionalDouble" %>
 <%@ page import="model.DayType" %>
-<%@ page import="java.util.ArrayList" %>
+<%@ page import="Helper.models.DaysHolder" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -23,13 +21,7 @@
 </div>
 <%
     String month = request.getParameter("monthType");
-    List<MonthType> monthTypes = Objects.requireNonNull(UnMarshaller.getYear()).getMonth();
-    List<DayType> dayTypeList = new ArrayList<>();
-    for (MonthType monthType : monthTypes) {
-        if (monthType.getMonthName().name().equals(month)) {
-            dayTypeList.addAll(monthType.getDay());
-        }
-    }
+    List<DayType> dayTypeList = DaysHolder.getDayTypes(month);
     OptionalDouble avgTemperature = dayTypeList.stream().mapToInt(DayType::getTemperature).average();
     int day = Math.toIntExact(dayTypeList.stream()
             .map(DayType::getTemperature)
@@ -37,7 +29,7 @@
             .count());
 %>
 <div style="text-align: center;">
-    <%= "Count day > avgTemp:  " + day %>
+    <%= "Quantity days when the temperature is above average :  " + day %>
 </div>
 <div style="text-align: center;">
     <button onclick="location.href='/Weather_war_exploded/index.jsp'">Back to main</button>

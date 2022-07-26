@@ -40,7 +40,6 @@
         <xsd:restriction base="xsd:string">
             <xsd:enumeration value="December"/>
             <xsd:enumeration value="January"/>
-            <xsd:enumeration value="January"/>
             <xsd:enumeration value="February"/>
             <xsd:enumeration value="March"/>
             <xsd:enumeration value="April"/>
