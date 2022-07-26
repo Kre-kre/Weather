@@ -10,7 +10,7 @@ import javax.xml.bind.Unmarshaller;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 
-public class UnMarshal {
+public class UnMarshaller {
     public static Year getYear() {
         try {
             XmlValidator.check(PropertiesEnum.XML_FILE.getPath(), PropertiesEnum.XSD_SCHEMA.getPath());
@@ -25,6 +25,6 @@ public class UnMarshal {
     }
 
     public static void main(String[] args) {
-        System.out.println(UnMarshal.getYear());
+        System.out.println(UnMarshaller.getYear());
     }
 }

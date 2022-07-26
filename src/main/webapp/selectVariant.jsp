@@ -4,6 +4,7 @@
     <title>Select result</title>
 </head>
 <form name="Simple" action="SelectVariant" method="POST">
+    <input id="monthType" name="monthType" type="hidden" value="${monthType}">
     <div style="text-align: center;">
         <p>Your choice is an month ${monthType} </p>
         <p>Select an option</p>

@@ -1,22 +1,22 @@
 <%@ page import="model.MonthType" %>
+<%@ page import="java.util.Objects" %>
 <%@ page import="servlet.UnMarshaller" %>
+<%@ page import="java.util.List" %>
 <%@ page import="model.DayType" %>
-<%@ page import="java.util.*" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
-    <title>D</title>
+    <div style="text-align: center;">
+        <h1>C</h1>
+    </div>
 </head>
-<div style="text-align: center;">
-    <h1>D</h1>
-</div>
 <body>
-
 <div style="text-align: center;">
     <input id="monthType" name="monthType" type="hidden" value="${monthType}">
     <p>Your choice is an option ${variantType}  </p>
 </div>
-
 <%
     String month = request.getParameter("monthType");
     List<MonthType> monthTypes = Objects.requireNonNull(UnMarshaller.getYear()).getMonth();
@@ -26,14 +26,13 @@
             dayTypeList.addAll(monthType.getDay());
         }
     }
-    dayTypeList.sort(Comparator.comparingDouble(DayType::getTemperature));
-    Collections.reverse(dayTypeList);
-
+    int day = Math.toIntExact(dayTypeList.stream()
+            .map(DayType::getTemperature)
+            .filter(integer -> integer > 0)
+            .count());
 %>
 <div style="text-align: center;">
-    <%=  dayTypeList.get(0).getTemperature() + ", "
-            + dayTypeList.get(1).getTemperature()
-            + "," + dayTypeList.get(2).getTemperature()%>
+    <%= "Count day temperature > 0 : " + day %>
 </div>
 <div style="text-align: center;">
     <button onclick="location.href='/Weather_war_exploded/index.jsp'">Back to main</button>
