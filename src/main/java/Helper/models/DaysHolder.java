@@ -9,6 +9,7 @@ import java.util.List;
 
 public class DaysHolder {
     private static final Year year = UnMarshaller.getYear();
+
     public static List<DayType> getDayTypes(String month) {
         assert year != null;
         List<MonthType> monthTypes = year.getMonth();

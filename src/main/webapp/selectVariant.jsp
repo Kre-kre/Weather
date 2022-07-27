@@ -6,7 +6,7 @@
 <form name="Simple" action="SelectVariant" method="POST">
     <input id="monthType" name="monthType" type="hidden" value="${monthType}">
     <div style="text-align: center;">
-        <p>Your choice is an month ${monthType} </p>
+        <p>Your choice is an month ${monthType}</p>
         <p>Select an option</p>
     </div>
     <div style="text-align: center;">
@@ -20,5 +20,5 @@
         </label>
         <input type="submit" name="button" value="Variant"/>
     </div>
-    </form>
+</form>
 </html>
