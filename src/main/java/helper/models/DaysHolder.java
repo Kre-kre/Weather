@@ -1,5 +1,6 @@
-package Helper.models;
+package helper.models;
 
+import helper.UnMarshaller;
 import model.DayType;
 import model.MonthType;
 import model.Year;
@@ -10,7 +11,7 @@ import java.util.List;
 public class DaysHolder {
     private static final Year year = UnMarshaller.getYear();
 
-    public static List<DayType> getDayTypes(String month) {
+    public List<DayType> getDayTypes(String month) {
         assert year != null;
         List<MonthType> monthTypes = year.getMonth();
         List<DayType> dayTypeList = new ArrayList<>();

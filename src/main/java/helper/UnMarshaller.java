@@ -1,7 +1,7 @@
-package Helper.models;
+package helper;
 
-import Helper.properties.PropertiesEnum;
-import Helper.properties.XmlValidator;
+import helper.properties.PropertiesEnum;
+import helper.properties.XmlValidator;
 import model.Year;
 
 import javax.xml.bind.JAXBContext;
@@ -11,7 +11,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 
 public class UnMarshaller {
-    protected static Year checkAndGet() {
+    public static Year checkAndGet() {
         try {
             XmlValidator.check(PropertiesEnum.XML_FILE.getPath(), PropertiesEnum.XSD_SCHEMA.getPath());
             JAXBContext jc = JAXBContext.newInstance(Year.class);
@@ -20,11 +20,9 @@ public class UnMarshaller {
             return (Year) unmarshaller.unmarshal(reader);
         } catch (JAXBException | FileNotFoundException e) {
             e.printStackTrace();
+            throw new RuntimeException(e);
         }
-        return null;
-    }
-
-    public static Year getYear() {
+    }public static Year getYear() {
         try {
             JAXBContext jc = JAXBContext.newInstance(Year.class);
             Unmarshaller unmarshaller = jc.createUnmarshaller();
@@ -32,7 +30,7 @@ public class UnMarshaller {
             return (Year) unmarshaller.unmarshal(reader);
         } catch (JAXBException | FileNotFoundException e) {
             e.printStackTrace();
+            throw new RuntimeException(e);
         }
-        return null;
     }
 }

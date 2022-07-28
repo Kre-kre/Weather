@@ -1,4 +1,4 @@
-package Helper.properties;
+package helper.properties;
 
 import org.xml.sax.SAXException;
 

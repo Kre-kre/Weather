@@ -1,8 +1,8 @@
 <%@ page import="model.MonthType" %>
-<%@ page import="java.util.List" %>
-<%@ page import="java.util.ListIterator" %>
 <%@ page import="java.util.Objects" %>
-<%@ page import="Helper.models.UnMarshaller" %>
+<%@ page import="java.util.ListIterator" %>
+<%@ page import="java.util.List" %>
+<%@ page import="helper.UnMarshaller" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 
@@ -16,7 +16,7 @@
 </div>
 <form name="Simple" action="SelectMonth" method="POST">
     <%
-        List<MonthType> monthTypes = Objects.requireNonNull(UnMarshaller.getYear()).getMonth();
+        List<MonthType> monthTypes = Objects.requireNonNull(UnMarshaller.checkAndGet()).getMonth();
         ListIterator<MonthType> monthTypeListIterator = monthTypes.listIterator();
     %>
     <div style="text-align: center;">

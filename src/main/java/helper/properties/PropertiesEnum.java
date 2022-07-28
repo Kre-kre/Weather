@@ -1,4 +1,4 @@
-package Helper.properties;
+package helper.properties;
 
 public enum PropertiesEnum {
     XML_FILE("yearXml"),

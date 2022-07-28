@@ -1,4 +1,4 @@
-package Helper.properties;
+package helper.properties;
 
 import java.io.IOException;
 import java.io.InputStream;
