@@ -7,7 +7,9 @@ import java.util.stream.Collectors;
 
 public class WeatherService {
     public double getAvgTemperature(List<DayType> dayTypeList) {
-        return dayTypeList.stream().mapToInt(DayType::getTemperature).average().getAsDouble();
+        return dayTypeList.stream()
+                .mapToInt(DayType::getTemperature)
+                .average().getAsDouble();
     }
 
     public int getDaysQuantityTempAboveAvg(List<DayType> dayTypeList) {
@@ -27,8 +29,9 @@ public class WeatherService {
     }
 
     public List<DayType> getThreeHottestDays(List<DayType> dayTypeList) {
-        return dayTypeList.stream().sorted(Comparator.comparingDouble(DayType::getTemperature)
-                .reversed()).limit(3).collect(Collectors.toList());
+        return dayTypeList.stream()
+                .sorted((x, y) -> y.getTemperature() - x.getTemperature())
+                .limit(3).collect(Collectors.toList());
     }
 
 }
